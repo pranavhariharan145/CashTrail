@@ -23,6 +23,20 @@ router.get("/", async (req, res) => {
       res.status(500).json({ error: "Failed to fetch expenses" });
     }
   });
+
+// DELETE request to remove an expense by ID
+router.delete("/:id", async (req, res) => {
+    try {
+      const expense = await Expense.findByIdAndDelete(req.params.id);
+      if (!expense) {
+        return res.status(404).json({ error: "Expense not found" });
+      }
+      res.json({ message: "Expense deleted successfully" });
+    } catch (error) {
+      res.status(500).json({ error: "Failed to delete expense" });
+    }
+  });
+  
   
 
 module.exports = router;
