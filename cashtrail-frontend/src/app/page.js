@@ -54,7 +54,7 @@ export default function ExpenseTable() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Expense Tracker</h1>
+      <h1 className="text-2xl font-bold mb-4">Welcome Back, User</h1>
 
       {/* New Expense Button */}
       <button className="bg-blue-500 text-white px-4 py-2 rounded mb-4" onClick={() => setShowForm(!showForm)}>
@@ -63,15 +63,67 @@ export default function ExpenseTable() {
 
       {/* Form (Only shows when showForm is true) */}
       {showForm && (
-        <form className="mb-4 p-4 border rounded bg-gray-100" onSubmit={handleSubmit}>
-          <input type="date" name="date" value={formData.date} onChange={handleChange} className="border p-2 mb-2 w-full" required />
-          <input type="text" name="category" placeholder="Category" value={formData.category} onChange={handleChange} className="border p-2 mb-2 w-full" required />
-          <input type="text" name="payee" placeholder="Payee" value={formData.payee} onChange={handleChange} className="border p-2 mb-2 w-full" required />
-          <input type="number" name="amount" placeholder="Amount" value={formData.amount} onChange={handleChange} className="border p-2 mb-2 w-full" required />
-          <input type="text" name="account" placeholder="Account" value={formData.account} onChange={handleChange} className="border p-2 mb-2 w-full" required />
-          <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">Add Expense</button>
-        </form>
-      )}
+  <div className="fixed right-0 top-0 h-full w-1/3 bg-white shadow-lg p-4 transition-transform transform translate-x-0">
+    <h2 className="text-xl font-bold mb-4">Add Expense</h2>
+    <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
+      <input
+        type="date"
+        name="date"
+        value={formData.date}
+        onChange={handleChange}
+        className="border p-2 rounded"
+        required
+      />
+      <input
+        type="text"
+        name="category"
+        placeholder="Category"
+        value={formData.category}
+        onChange={handleChange}
+        className="border p-2 rounded"
+        required
+      />
+      <input
+        type="text"
+        name="payee"
+        placeholder="Payee"
+        value={formData.payee}
+        onChange={handleChange}
+        className="border p-2 rounded"
+        required
+      />
+      <input
+        type="number"
+        name="amount"
+        placeholder="Amount"
+        value={formData.amount}
+        onChange={handleChange}
+        className="border p-2 rounded"
+        required
+      />
+      <input
+        type="text"
+        name="account"
+        placeholder="Account"
+        value={formData.account}
+        onChange={handleChange}
+        className="border p-2 rounded"
+        required
+      />
+      <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+        Submit
+      </button>
+      <button
+        type="button"
+        className="text-red-500"
+        onClick={() => setShowForm(false)}
+      >
+        Close
+      </button>
+    </form>
+  </div>
+)}
+
 
       {/* Expenses Table */}
       <table className="w-full border-collapse border border-gray-300">
