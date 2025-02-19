@@ -90,7 +90,11 @@ export default function ExpenseTable() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Welcome Back, User</h1>
+      <div className="flex justify-between items-center">
+        <div className="text-4xl font-extrabold text-white mt-5 mb-20 ">CashTrail</div>
+        <div></div> {/* Empty div to push the heading to the left */}
+      </div>
+      <h1 className="text-2xl font-bold mt-5 mb-10 ">Welcome Back, User</h1>
       {/* Form (Only shows when showForm is true) */}
       {showForm && (
         <div className="fixed right-0 top-0 h-full w-1/3 bg-white shadow-lg p-4 transition-transform transform translate-x-0">
@@ -160,9 +164,9 @@ export default function ExpenseTable() {
             <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600" onClick={() => setShowForm(!showForm)}>
               Add Transaction
             </button>
-            <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600" 
-            onClick={deleteSelected}
-            disabled={selectedExpenses.length === 0}>
+            <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+              onClick={deleteSelected}
+              disabled={selectedExpenses.length === 0}>
               Delete Selected
             </button>
           </div>
