@@ -89,7 +89,9 @@ export default function ExpenseTable() {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="w-screen h-screen bg-white">
+    
+    <div className="w-full bg-blue-500 p-4">
       <div className="flex justify-between items-center">
         <div className="text-4xl font-extrabold text-white mt-5 mb-20 ">CashTrail</div>
         <div></div> {/* Empty div to push the heading to the left */}
@@ -98,8 +100,8 @@ export default function ExpenseTable() {
       {/* Form (Only shows when showForm is true) */}
       {showForm && (
         <div className="fixed right-0 top-0 h-full w-1/3 bg-white shadow-lg p-4 transition-transform transform translate-x-0">
-          <h2 className="text-xl font-bold mb-4">Add Expense</h2>
-          <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
+          <h2 className="p-4 text-left">Add Expense</h2>
+          <form onSubmit={handleSubmit} className="flex flex-col space-y-3 p-4 text-left">
             <input
               type="date"
               name="date"
@@ -156,7 +158,8 @@ export default function ExpenseTable() {
 
 
       {/* Expenses Table */}
-      <div className="bg-white p-6 shadow-lg rounded-2xl">
+      <div className="flex justify-center items-center">
+      <div className="bg-white rounded-lg p-4 m-4 border-gray-200 w-3/5">
         {/* Header Section with Title and Buttons */}
         <div className="flex justify-between items-center p-4">
           <div className="text-black font-bold text-lg">Your Transactions</div>
@@ -206,10 +209,13 @@ export default function ExpenseTable() {
           </tbody>
         </table>
       </div>
+      </div>
 
 
 
     </div>
-
-  );
+    </div>
+  ); 
 }
+
+
